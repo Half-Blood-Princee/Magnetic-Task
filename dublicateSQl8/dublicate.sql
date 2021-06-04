@@ -1,0 +1,1 @@
+SELECT `key`, MAX(id) AS _id FROM test_table GROUP BY `key`
