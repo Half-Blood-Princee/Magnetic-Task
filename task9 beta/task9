@@ -1,0 +1,13 @@
+SELECT
+    wp_posts.`post_title`, wp_terms.`name`
+FROM
+    wp_terms
+        JOIN
+    wp_term_taxonomy ON wp_terms.term_id = wp_term_taxonomy.term_id
+        JOIN
+    wp_term_relationships ON wp_term_taxonomy.term_taxonomy_id = wp_term_relationships.term_taxonomy_id
+        JOIN
+    wp_posts ON wp_term_relationships.object_id = wp_posts.ID
+WHERE
+    wp_terms.name != 'Test1'
+        AND wp_term_taxonomy.taxonomy = 'product_cat'
